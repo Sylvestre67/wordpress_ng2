@@ -1,0 +1,12 @@
+<p>
+  event-detail works!
+</p>
+
+<div *ngIf="event">
+  <h1>{{ event.title.rendered }}</h1>
+  <div [innerHTML]="event.content.rendered"></div>
+</div>
+
+<div *ngIf="!event">
+  <p>Loading Event Information</p>
+</div>
