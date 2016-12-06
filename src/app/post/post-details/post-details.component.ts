@@ -12,7 +12,8 @@ import { PostService } from '../post.service';
 @Component({
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
-  styleUrls: ['./post-details.component.less']
+  styleUrls: ['./post-details.component.less'],
+  providers: [ PostService ],
 })
 export class PostDetailsComponent implements OnInit {
 
@@ -21,7 +22,7 @@ export class PostDetailsComponent implements OnInit {
                private location : Location ) { }
 
   private post : Post
-  
+
   getPostDetails(){
     this.route.params.switchMap((params: Params) => this.postService.getPostDetails(+params['id']))
             .subscribe( res => { this.post = res })

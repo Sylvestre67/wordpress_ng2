@@ -5,6 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { EventListComponent } from './event/event-list/event-list.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 
+import { PostListComponent } from './post/post-list/post-list.component';
+import { PostDetailsComponent } from './post/post-details/post-details.component';
+
 const routes: Routes = [
   {
     path: 'home',
@@ -20,7 +23,17 @@ const routes: Routes = [
     path: 'events/:id',
     component: EventDetailComponent,
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'posts',
+    component: PostListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'posts/:id',
+    component: PostDetailsComponent,
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
