@@ -28,7 +28,7 @@ export class EventDetailComponent implements OnInit {
 
   getEventDetails(){
     this.route.params.switchMap((params: Params) => this.eventService.getEventDetails(+params['id']))
-            .subscribe( res => { console.log(this), this.event = res })
+            .subscribe( res => { this.event = res })
   }
 
   ngOnInit() {
