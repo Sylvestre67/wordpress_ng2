@@ -13,12 +13,14 @@ import { PostListComponent } from './post/post-list/post-list.component';
 import { HomeComponent } from './home/home.component';
 
 import { EventModule } from './event/event.module';
+import { PostDetailsComponent } from './post/post-details/post-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PostListComponent,
+    PostDetailsComponent,
   ],
   imports: [
     AlertModule,
