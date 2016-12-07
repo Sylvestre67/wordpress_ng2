@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 
 import { EventModule } from './event/event.module';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
+import { PageListComponent } from './page/page-list/page-list.component';
+import { PageDetailsComponent } from './page/page-details/page-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
     HomeComponent,
     PostListComponent,
     PostDetailsComponent,
+    PageListComponent,
+    PageDetailsComponent,
   ],
   imports: [
     AlertModule,
@@ -28,7 +32,6 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
     EventModule,
     FormsModule,
     HttpModule,
-
     appRouter,
   ],
   providers: [],

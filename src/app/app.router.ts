@@ -8,6 +8,10 @@ import { EventDetailComponent } from './event/event-detail/event-detail.componen
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 
+import { PageListComponent } from './page/page-list/page-list.component';
+import { PageDetailsComponent } from './page/page-details/page-details.component';
+
+
 const routes: Routes = [
   {
     path: 'home',
@@ -32,6 +36,16 @@ const routes: Routes = [
   {
     path: 'posts/:slug',
     component: PostDetailsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'pages',
+    component: PageListComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'pages/:slug',
+    component: PageDetailsComponent,
     pathMatch: 'full'
   },
 ];
