@@ -5,6 +5,6 @@
 
 <ul>
   <li *ngFor="let event of events">
-    <a [routerLink]="['/events', event.id]">{{ event.title.rendered }}</a>
+    <a [routerLink]="['/events', event.slug]">{{ event.title.rendered }}</a>
   </li>
 </ul>

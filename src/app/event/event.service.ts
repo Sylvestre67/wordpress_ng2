@@ -17,8 +17,8 @@ export class EventService {
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   } // get list of events
 
-  getEventDetails(id:number): Observable<Event> {
-    return this.http.get(this.wp_api + 'events/' + id + '/')
+  getEventDetails(slug:string): Observable<Event> {
+    return this.http.get(this.wp_api + 'events?filter[name]=' + slug)
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   } //get one event data
