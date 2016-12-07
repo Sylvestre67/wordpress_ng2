@@ -24,8 +24,8 @@ export class PostDetailsComponent implements OnInit {
   private post : Post
 
   getPostDetails(){
-    this.route.params.switchMap((params: Params) => this.postService.getPostDetails(+params['id']))
-            .subscribe( res => { this.post = res })
+    this.route.params.switchMap((params: Params) => this.postService.getPostDetails(params['slug']))
+            .subscribe( res => { this.post = res[0] })
   }
 
   ngOnInit() {

@@ -30,7 +30,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'posts/:id',
+    path: 'posts/:slug',
     component: PostDetailsComponent,
     pathMatch: 'full'
   },

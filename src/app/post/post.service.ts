@@ -17,8 +17,8 @@ export class PostService {
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }
 
-  getPostDetails(id:number): Observable<Post>{
-    return this.http.get(this.wp_api + 'posts/' + id + '/')
+  getPostDetails(slug:string): Observable<Post>{
+    return this.http.get(this.wp_api + 'posts?filter[name]=' + slug)
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }
