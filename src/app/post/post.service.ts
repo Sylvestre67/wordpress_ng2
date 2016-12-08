@@ -10,7 +10,6 @@ import { Post } from './post';
 
 @Injectable()
 export class PostService {
-
   getPosts(): Observable<Post[]>{
     return this.http.get(this.wp_api + 'posts')
                     .map((res:Response) => res.json())
@@ -24,6 +23,6 @@ export class PostService {
   }
 
   constructor(private http : Http) { }
-  private wp_api = 'http://localhost:15000/wp-json/wp/v2/'
+  private wp_api = 'http://localhost:15000/wp-json/wp/v2/';
 
 }

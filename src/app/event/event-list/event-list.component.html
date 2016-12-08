@@ -1,8 +1,3 @@
-<p>
-  event-list works!
-  Events are : {{ events }}
-</p>
-
 <ul>
   <li *ngFor="let event of events">
     <a [routerLink]="['/events', event.slug]">{{ event.title.rendered }}</a>

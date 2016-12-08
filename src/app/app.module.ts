@@ -16,6 +16,8 @@ import { EventModule } from './event/event.module';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PageListComponent } from './page/page-list/page-list.component';
 import { PageDetailsComponent } from './page/page-details/page-details.component';
+import { PagesNavComponent } from './page/pages-nav/pages-nav.component';
+import { TopNavComponent } from './layout/nav/top-nav/top-nav.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { PageDetailsComponent } from './page/page-details/page-details.component
     PostDetailsComponent,
     PageListComponent,
     PageDetailsComponent,
+    PagesNavComponent,
+    TopNavComponent,
   ],
   imports: [
     AlertModule,

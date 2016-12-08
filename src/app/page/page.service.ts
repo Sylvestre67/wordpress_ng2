@@ -23,6 +23,12 @@ export class PageService {
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }
 
+  getParentPages(): Observable<Page[]>{
+    return this.http.get(this.wp_api + 'pages?parent=0')
+                    .map((res:Response) => res.json())
+                    .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
+  }
+
   constructor(private http : Http){ }
   private wp_api = 'http://localhost:15000/wp-json/wp/v2/';
 
