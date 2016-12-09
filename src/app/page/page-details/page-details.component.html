@@ -1,8 +1,16 @@
-<div *ngIf="page">
-  <h1>{{ page.title.rendered }}</h1>
-  <div [innerHTML]="page.content.rendered"></div>
-</div>
+<div class="row">
+  <div class="col-md-8 col-xs-12">
+    <div *ngIf="page">
+      <h1>{{ page.title.rendered }}</h1>
+      <div [innerHTML]="page.content.rendered"></div>
+    </div>
 
-<div *ngIf="!page">
-  <p>Loading Page Information</p>
+    <div *ngIf="!page">
+      <p>Loading Page Information</p>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-xs-12 r-col">
+    <p>TBD</p>
+  </div>
 </div>

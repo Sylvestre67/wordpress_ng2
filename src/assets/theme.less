@@ -1,0 +1,47 @@
+@import 'variables';
+@import 'mixins';
+
+.transition(@property,@duration,@effect){
+	-webkit-transition: @property,@duration,@effect;
+  	   -moz-transition: @property,@duration,@effect;
+	     -o-transition: @property,@duration,@effect;
+		    transition: @property,@duration,@effect;
+}
+
+body{
+  font-family: 'Ubuntu', sans-serif;
+  height: 100%;
+	box-sizing:border-box;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+div {
+	box-sizing:border-box;
+}
+
+/*******************
+* TYPOGRAPHHY
+*******************/
+h1,h2,h3,h4,h5,h6,a{
+  color:@red_alsace;
+}
+
+a{
+  &:hover, &:focus{
+    -webkit-transition: color,300ms,ease;
+       -moz-transition: color,300ms,ease;
+         -o-transition: color,300ms,ease;
+            transition: color,300ms,ease;
+    color:darken(@red_alsace,5);
+    text-decoration:none;
+  }
+}
+
+/*******************
+* LAYOUTS
+*******************/
+.r-col{
+  background-color:@gray_alsace;
+}

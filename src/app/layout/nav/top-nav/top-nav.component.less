@@ -1,0 +1,25 @@
+@import "../../../../assets/variables";
+
+.navbar{
+  & div.navbar-toggleable-md{
+    & ul.navbar-nav{
+
+      & a.navbar-brand{
+        padding:.3em 1em;
+      }
+      & li.nav-item{
+        padding:.3em 1em;
+        & a{
+
+        }
+        &.active, &:hover{
+          border-bottom:2px solid @red_alsace;
+          & a{
+            color:@red_alsace;
+          }
+        }
+
+      }
+    }
+  }
+}
