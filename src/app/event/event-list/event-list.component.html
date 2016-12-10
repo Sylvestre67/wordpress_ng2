@@ -1,5 +1,10 @@
-<ul>
-  <li *ngFor="let event of events">
-    <a [routerLink]="['/events', event.slug]">{{ event.title.rendered }}</a>
+<ul class="list-unstyled event-list">
+  <li *ngFor="let event of events" class="event-preview">
+    <div class="date-cube">
+      <div class="text">{{ event.date | date:'d' }}</div>
+      <div class="text">{{ event.date | date:'MMM yy' }}</div>
+    </div>
+    <h4 [innerHtml]="event.title.rendered" [routerLink]="['/events', event.slug]"></h4>
+  
   </li>
 </ul>

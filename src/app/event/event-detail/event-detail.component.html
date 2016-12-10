@@ -1,10 +1,6 @@
-<p>
-  event-detail works!
-</p>
-
 <div *ngIf="event">
-  <h1>{{ event.title.rendered }}</h1>
-  <div [innerHTML]="event.content.rendered"></div>
+  <h4 [innerHtml]="event.title.rendered" [routerLink]="['/events', event.slug]"></h4>
+  <p [innerHtml]="event.content.rendered"></p>
 </div>
 
 <div *ngIf="!event">
