@@ -18,6 +18,7 @@ import { PageListComponent } from './page/page-list/page-list.component';
 import { PageDetailsComponent } from './page/page-details/page-details.component';
 import { PagesNavComponent } from './page/pages-nav/pages-nav.component';
 import { TopNavComponent } from './layout/nav/top-nav/top-nav.component';
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TopNavComponent } from './layout/nav/top-nav/top-nav.component';
     PageDetailsComponent,
     PagesNavComponent,
     TopNavComponent,
+    ContactFormComponent,
   ],
   imports: [
     AlertModule,

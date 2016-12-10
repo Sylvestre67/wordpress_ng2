@@ -45,3 +45,37 @@ a{
 .r-col{
   background-color:@gray_alsace;
 }
+
+/*******************
+* FORMS
+*******************/
+form {
+	& .form-error{
+		color:@red_alsace;
+		font-size:.8em;
+	}
+
+	& .form-group{
+		& .form-control{
+			border-radius:0;
+
+			&.ng-valid[required]{
+				&.ng-untouched{
+					border-color:rgba(0,0,0,.15);
+				}
+				&.ng-touched{
+					border-color:@vine;
+				}
+			}
+
+			&.ng-invalid{
+				&.ng-untouched{
+					border-color:rgba(0,0,0,.15);
+				}
+				&.ng-touched{
+					border-color:@red_alsace;
+				}
+			}
+		}
+	}
+}

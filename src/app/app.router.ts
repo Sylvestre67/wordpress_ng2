@@ -11,6 +11,7 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
 import { PageListComponent } from './page/page-list/page-list.component';
 import { PageDetailsComponent } from './page/page-details/page-details.component';
 
+import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,11 @@ const routes: Routes = [
   {
     path: 'pages/:slug',
     component: PageDetailsComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'contact-us',
+    component: ContactFormComponent,
     pathMatch: 'full'
   },
 ];
