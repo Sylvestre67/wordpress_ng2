@@ -20,6 +20,8 @@ import { PagesNavComponent } from './page/pages-nav/pages-nav.component';
 import { TopNavComponent } from './layout/nav/top-nav/top-nav.component';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
+import { APP_BASE_HREF } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,7 @@ import { ContactFormComponent } from './contact/contact-form/contact-form.compon
     HttpModule,
     appRouter,
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent],
 })
 
