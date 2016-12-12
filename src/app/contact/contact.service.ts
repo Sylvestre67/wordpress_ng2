@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../../environments/environment';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -19,11 +20,11 @@ export class ContactService {
     let options      = new RequestOptions({ headers: headers }); // Create a request option
     let body           = form
 
-    return this.http.post('/contact-form.php', body, options)
+    return this.http.post(this.wp_host + '/contact-form.php', body, options)
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   constructor(private http : Http) { }
-
+  private wp_host = environment.wp_host;  
 }

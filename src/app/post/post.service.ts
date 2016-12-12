@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
+import { environment } from '../../environments/environment';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -23,6 +24,6 @@ export class PostService {
   }
 
   constructor(private http : Http) { }
-  private wp_api = 'http://localhost:15000/wp-json/wp/v2/';
+  private wp_api = environment.api_host;
 
 }
