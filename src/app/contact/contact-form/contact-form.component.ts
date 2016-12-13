@@ -12,7 +12,7 @@ import { ContactService } from '../contact.service';
 })
 export class ContactFormComponent implements OnInit {
 
-  model = new Contact('sgug@outlook.com', 'TESTING SUBJECT', 'TESTING MESSAGE');
+  model = new Contact('', '', '');
 
   newContact() {
     this.model = new Contact('', '', '');
@@ -26,13 +26,10 @@ export class ContactFormComponent implements OnInit {
                 );
   }
 
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-
   constructor( private contactService : ContactService) { }
 
   ngOnInit() {
-    //this.setNewModel();
+    this.newContact();
   }
 
 }

@@ -4,7 +4,7 @@
       <div class="text">{{ event.date | date:'d' }}</div>
       <div class="text">{{ event.date | date:'MMM yy' }}</div>
     </div>
-    <h4 [innerHtml]="event.title.rendered" [routerLink]="['/events', event.slug]"></h4>
-  
+    <h4 [innerHtml]="event.title.rendered" [routerLink]="['/event', event.slug]"></h4>
+
   </li>
 </ul>

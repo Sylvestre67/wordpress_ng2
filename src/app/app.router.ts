@@ -14,6 +14,7 @@ import { PageDetailsComponent } from './page/page-details/page-details.component
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
     component: HomeComponent,
@@ -25,27 +26,27 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'events/:slug',
+    path: 'event/:slug',
     component: EventDetailComponent,
     pathMatch: 'full'
   },
   {
-    path: 'posts',
+    path: 'blog-post',
     component: PostListComponent,
     pathMatch: 'full'
   },
   {
-    path: 'posts/:slug',
+    path: 'blog-post/:slug',
     component: PostDetailsComponent,
     pathMatch: 'full'
   },
   {
-    path: 'pages',
+    path: 'p',
     component: PageListComponent,
     pathMatch: 'full'
   },
   {
-    path: 'pages/:slug',
+    path: 'p/:slug',
     component: PageDetailsComponent,
     pathMatch: 'full'
   },
