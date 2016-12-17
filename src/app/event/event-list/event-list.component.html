@@ -4,7 +4,12 @@
       <div class="text">{{ event.date | date:'d' }}</div>
       <div class="text">{{ event.date | date:'MMM yy' }}</div>
     </div>
-    <h4 [innerHtml]="event.title.rendered" [routerLink]="['/event', event.slug]"></h4>
-
+    <a class="h4" [innerHtml]="event.title.rendered" [routerLink]="['/event', event.slug]"></a>
+    <p>Where: La Tarte Flambee
+      <br>
+      123 east 12th Avenu, New York City, NY 10004
+    </p>
+    <p>{{ event.excerpt }} Join us for .... <a [routerLink]="['/event', event.slug]">[more info]</a></p>
+    <hr>
   </li>
 </ul>

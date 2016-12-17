@@ -8,19 +8,25 @@ import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { appRouter } from './app.router';
 
 import { AppComponent } from './app.component';
-//import { EventListComponent } from './event/event-list/event-list.component';
+
 import { PostListComponent } from './post/post-list/post-list.component';
 import { HomeComponent } from './home/home.component';
 
 import { EventModule } from './event/event.module';
+
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PageListComponent } from './page/page-list/page-list.component';
+
 import { PageDetailsComponent } from './page/page-details/page-details.component';
 import { PagesNavComponent } from './page/pages-nav/pages-nav.component';
+
 import { TopNavComponent } from './layout/nav/top-nav/top-nav.component';
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 
 import { APP_BASE_HREF } from '@angular/common';
+import { XsNavComponent } from './layout/nav/xs-nav/xs-nav.component';
+import { MchimpFormComponent } from './mchimp/mchimp-form/mchimp-form.component';
+import { PostPageComponent } from './post/post-page/post-page.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +39,9 @@ import { APP_BASE_HREF } from '@angular/common';
     PagesNavComponent,
     TopNavComponent,
     ContactFormComponent,
+    XsNavComponent,
+    MchimpFormComponent,
+    PostPageComponent,
   ],
   imports: [
     AlertModule,

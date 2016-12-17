@@ -21,12 +21,16 @@ module.exports = function(grunt) {
           dest: '../../../sites/alsace_nyc/wp-content/themes/ng2/',
           filter: 'isFile',
         },
+        {
+          expand: true,
+          src: [
+            '../../../sites/alsace_nyc/wp-content/themes/ng2/dist/assets/**',
+          ],
+          dest: '../../../sites/alsace_nyc/assets/**'
+        }
   		  ]
   		}
-  	},
-
-
-
+  	}
   });
 
   grunt.loadNpmTasks('grunt-exec');

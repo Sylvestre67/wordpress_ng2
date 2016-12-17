@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { EventListComponent } from './event/event-list/event-list.component';
+
+import { EventPageComponent } from './event/event-page/event-page.component';
 import { EventDetailComponent } from './event/event-detail/event-detail.component';
 
 import { PostListComponent } from './post/post-list/post-list.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
+import { PostPageComponent } from './post/post-page/post-page.component';
 
 import { PageListComponent } from './page/page-list/page-list.component';
 import { PageDetailsComponent } from './page/page-details/page-details.component';
@@ -22,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'events',
-    component: EventListComponent,
+    component: EventPageComponent,
     pathMatch: 'full'
   },
   {
@@ -32,7 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'blog-post',
-    component: PostListComponent,
+    component: PostPageComponent,
     pathMatch: 'full'
   },
   {

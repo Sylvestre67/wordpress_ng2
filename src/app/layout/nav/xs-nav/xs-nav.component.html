@@ -1,0 +1,29 @@
+<div class="xs-nav hidden-md-up">
+  <div class="row">
+    <div class="col-xs flex-xs-middle" routerLink="/home" routerLinkActive="active">
+      <a class="link">
+        <i class="fa fa-home" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col-xs flex-xs-middle" [routerLink]="['p','about']" routerLinkActive="active">
+      <a class="">
+        <i class="fa fa-handshake-o" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col-xs flex-xs-middle" routerLink="/events" routerLinkActive="active">
+      <a class="">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col-xs flex-xs-middle" routerLink="/blog-post" routerLinkActive="active">
+      <a class="">
+          <i class="fa fa-comments" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="col-xs flex-xs-middle" routerLink="/contact-us" routerLinkActive="active">
+      <a class="" >
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</div>

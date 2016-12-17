@@ -1,0 +1,27 @@
+@import "../../../../assets/variables";
+@import '../../../../assets/mixins.less';
+
+.xs-nav{
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  /* Set the fixed height of the footer here */
+  height:@footer-height;
+  line-height: @footer-height; /* Vertically center the text there */
+  background-color:@gray_alsace;
+  z-index:10;
+  overflow-x:hidden;
+  & .col-xs{
+    text-align:center;
+    border-right:1px solid rgba(0,0,0,0.35);
+    & a{
+      color:rgba(0,0,0,.5) !important;
+    }
+    &.active{
+      background-color:black;
+      & a{
+        color:white !important;
+      }
+    }
+  }
+}

@@ -1,39 +1,40 @@
 @import "../../../../assets/variables";
 
 .navbar{
-  background-color:rgba(0,0,0,0.25);
+  background-color:@gray_alsace;
   border-radius:0;
-  & div.navbar-toggleable-md{
+  & div.navbar-top{
+    & .navbar-brand{
+      max-width:150px;
+      height:auto;
+    }
     & ul.navbar-nav{
-
       & a.navbar-brand{
         padding:.3em 1em;
       }
       & li.nav-item{
-        padding:.3em 1em;
-        cursor: pointer;
-        & a{
-
-        }
-
-        &.active{
-          & a{
+        & .nav-link{
+          border-bottom:2px solid transparent !important;
+          padding:.3em 1em;
+          cursor: pointer;
+          &.active{
             color:black;
+            border-bottom-color:@red_alsace !important;
           }
-        }
-
-        &:hover{
-          & a{
+          &:hover{
             color:@red_alsace;
           }
+          &.active, &:hover{
+            border-bottom-color:@red_alsace !important;
+          }
         }
-
-        &.active, &:hover{
-          border-bottom:2px solid @red_alsace;
-
-        }
-
       }
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar{
+    display:none;
   }
 }

@@ -1,56 +1,87 @@
 <div class="container">
-  <div class="col-md-8">
-    <h3>Contact Us</h3>
-    <p>
-      Please complete and submit this form to contact us.
-      <br>
-      We'll try to get back to you shortly!
-    </p>
+  <div class="row">
 
-    <hr>
+    <div class="col-md-8 col-xs-12 l-col">
+      <h3>Contact Us</h3>
 
-    <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
-      <div class="form-group">
-        <label for="name">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="email@email.com"
-          required
-          name="email"
-          [(ngModel)]="model.email"
-          #name="ngModel">
-        <div [hidden]="name.valid || name.untouched" class="form-error">
-          Email is required
+      <section>
+        <div *ngIf="!submitted" [@fadeInOut]="submitted">
+          <p>
+            Please complete and submit this form to contact us.
+          </p>
+          <hr>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="alterEgo">Subject</label>
-        <input type="text" class="form-control" id="subject" placeholder="What can we do for you ?"
-               name="subject"
-               required
-               [(ngModel)]="model.subject"
-               #subject="ngModel">
-        <div [hidden]="subject.valid || subject.untouched" class="form-error" >
-          A subject is required
+
+        <div *ngIf="submitted" [@fadeInOut]="submitted">
+          <p>
+            Thank you for your message, we'll get back to you shortly!
+          </p>
+          <hr>
+          <p>
+            In the meantime, take a look at our next events.
+          </p>
+          <h5>Coming up events</h5>
+          <app-event-list></app-event-list>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="alterEgo">Subject</label>
-        <textarea type="text" class="form-control" id="message" placeholder="We love to hear from you..."
-                  name="message"
-                  required
-                  [(ngModel)]="model.message"
-                  #message="ngModel"></textarea>
-        <div [hidden]="message.valid || message.untouched" class="form-error">
-          A message is required
+
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm"
+              *ngIf="!submitted"
+              [@fadeInOut]="submitted">
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="email@email.com"
+                 required
+                 name="email"
+                 [(ngModel)]="model.email"
+                 #name="ngModel">
+          <div [hidden]="name.valid || name.untouched" class="form-error">
+            Email is required
+          </div>
         </div>
+        <div class="form-group">
+          <label for="alterEgo">Subject</label>
+          <input type="text" class="form-control" id="subject" placeholder="What can we do for you ?"
+                 name="subject"
+                 required
+                 [(ngModel)]="model.subject"
+                 #subject="ngModel">
+          <div [hidden]="subject.valid || subject.untouched" class="form-error" >
+            A subject is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="alterEgo">Subject</label>
+          <textarea type="text" class="form-control" id="message" placeholder="We love to hear from you..."
+                    name="message"
+                    required
+                    [(ngModel)]="model.message"
+                    #message="ngModel"></textarea>
+          <div [hidden]="message.valid || message.untouched" class="form-error">
+            A message is required
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default"
+                (click)="onSubmit(); contactForm.reset();"
+                [disabled]="!contactForm.form.valid">
+          Submit
+        </button>
+      </form>
+      </section>
+
+      <section>
+
+      </section>
+
+    </div>
+
+    <div class="col-md-4 r-col hidden-sm-down">
+      <app-mchimp-form></app-mchimp-form>
+
+      <div class="img-wrap text-xs-center">
+        <img src="/assets/img/alsace_steuben_parade_new_york.jpeg" class="img-fluid" />
       </div>
-      <button type="submit" class="btn btn-default"
-              (click)="onSubmit(); contactForm.reset();"
-              [disabled]="!contactForm.form.valid">
-              Submit
-      </button>
-    </form>
-  </div>
-  <div class="col-md-4 r-col">
-    <p>TBD</p>
+
+    </div>
+
   </div>
 </div>

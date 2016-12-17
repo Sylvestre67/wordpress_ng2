@@ -1,5 +1,10 @@
-<ul>
+<ul class="list-unstyled post-list">
   <li *ngFor="let post of posts">
-     <a [routerLink]="['/blog-post', post.slug]">{{ post.title.rendered }}</a>
+     <a [routerLink]="['/blog-post', post.slug]" class="h5 p">{{ post.title.rendered }}</a>
+     <p class="small">Author: Sylvestre Gug</p>
+     <p>This is the Excerpt.
+       <a [routerLink]="['/blog-post', post.slug]">[read more]</a>
+     </p>
+     <hr>
   </li>
 </ul>
