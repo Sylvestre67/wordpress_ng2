@@ -13,17 +13,28 @@ import { Page } from '../page';
 })
 
 export class PageDetailsComponent implements OnInit {
-  page : Page
+
+  page : Page;
 
   getPageDetails(){
     this.route.params.switchMap((params: Params) => this.pageService.getPageDetails(params['slug']))
-            .subscribe( res => { this.page = res[0] })
+            .subscribe( res => {
+              this.page = res[0];
+
+              this.pageService.getPageFeatMedia(res[0].featured_media).subscribe(
+                res => {
+                  this.page['feat_media'] = res;
+                  this.page['feat_url'] = 'url(\'' + this.page['feat_media'].media_details.sizes.full.source_url + '\')';
+                  console.info(this.page);
+                }
+              )
+            })
   }
 
   constructor(
     private pageService : PageService,
     private route : ActivatedRoute,
-    private location : Location
+    private location : Location,
     ) { }
 
     ngOnInit() {

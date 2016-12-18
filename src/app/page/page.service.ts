@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Page } from './page';
+import { Media } from '../media/media';
 
 @Injectable()
 export class PageService {
@@ -22,6 +23,12 @@ export class PageService {
     return this.http.get(this.wp_api + 'pages?filter[name]=' + slug)
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
+  }
+
+  getPageFeatMedia(media_id:number): Observable<Media> {
+    return this.http.get(this.wp_api + 'media/' + media_id)
+                .map((res:Response) => res.json())
+                .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }
 
   getParentPages(): Observable<Page[]>{

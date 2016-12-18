@@ -9,8 +9,13 @@
         <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
       <li *ngFor="let page of parentPages" class="nav-item">
-        <a class="nav-link" [routerLink]="['p',page.slug]" routerLinkActive="active">{{ page.title.rendered }}</a>
+        <a class="nav-link" [routerLink]="['p', page.slug]" routerLinkActive="active">
+          {{ page.title.rendered }}
+        </a>
       </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" routerLink="/about-us" routerLinkActive="active">About Us</a>
+      </li>-->
       <li class="nav-item">
         <a class="nav-link" routerLink="/events" routerLinkActive="active">Events</a>
       </li>

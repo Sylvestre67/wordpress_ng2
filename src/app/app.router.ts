@@ -12,6 +12,8 @@ import { PostPageComponent } from './post/post-page/post-page.component';
 
 import { PageListComponent } from './page/page-list/page-list.component';
 import { PageDetailsComponent } from './page/page-details/page-details.component';
+import { PageAboutComponent } from './page/page-about/page-about.component';
+
 
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 

@@ -22,7 +22,9 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "./assets/theme.less"
       ],
-      "scripts": [],
+      "scripts": [
+        "./assets/vendor.ts"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

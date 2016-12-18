@@ -27,6 +27,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { XsNavComponent } from './layout/nav/xs-nav/xs-nav.component';
 import { MchimpFormComponent } from './mchimp/mchimp-form/mchimp-form.component';
 import { PostPageComponent } from './post/post-page/post-page.component';
+import { PageAboutComponent } from './page/page-about/page-about.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PostPageComponent } from './post/post-page/post-page.component';
     XsNavComponent,
     MchimpFormComponent,
     PostPageComponent,
+    PageAboutComponent,
   ],
   imports: [
     AlertModule,

@@ -1,5 +1,5 @@
-<ul class="list-unstyled event-list">
-  <li *ngFor="let event of events" class="event-preview">
+<ul *ngIf="events" class="list-unstyled event-list">
+  <li *ngFor="let event of events | eventToCome" class="event-preview">
     <div class="date-cube">
       <div class="text">{{ event.date | date:'d' }}</div>
       <div class="text">{{ event.date | date:'MMM yy' }}</div>

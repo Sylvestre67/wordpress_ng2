@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core'
 
 import { EventService } from '../event.service';
 import { Event } from '../event';
@@ -17,7 +16,9 @@ export class EventListComponent implements OnInit {
 
   getEvents(){
     this.eventService
-      .getEvents().subscribe( res => { this.events = res; })
+      .getEvents().subscribe(
+        res => { this.events = res; }
+      )
   }
 
   ngOnInit() {
