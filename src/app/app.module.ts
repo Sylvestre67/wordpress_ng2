@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 
 import { EventModule } from './event/event.module';
 
+import { SharedModule } from './shared/shared.module';
+
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PageListComponent } from './page/page-list/page-list.component';
 
@@ -48,11 +50,15 @@ import { PageAboutComponent } from './page/page-about/page-about.component';
   imports: [
     AlertModule,
     BrowserModule,
+
     EventModule,
+    SharedModule,
+
     FormsModule,
     HttpModule,
     appRouter,
   ],
+  exports:[ ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent],
 })

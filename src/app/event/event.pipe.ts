@@ -1,8 +1,5 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
-
 declare var moment: any;
-
-//import * as moment from 'moment';
 
 @Pipe({
   name: 'eventToCome'
@@ -14,3 +11,15 @@ export class EventPipe implements PipeTransform {
     return events.filter( event => moment(event.starting_date) >= moment() );
   }
 }
+
+@Pipe({
+  name: 'moment'
+})
+
+@Injectable()
+export class MomentPipe implements PipeTransform {
+  transform(date: any, args?: any): any {
+    return moment(date);
+  }
+}
+

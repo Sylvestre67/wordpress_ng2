@@ -18,7 +18,7 @@ import { EventService } from '../event.service';
 
 export class EventDetailComponent implements OnInit {
 
-  private event : Event
+  private event : Event;
 
   constructor(
     private eventService : EventService,
@@ -28,7 +28,20 @@ export class EventDetailComponent implements OnInit {
 
   getEventDetails(){
     this.route.params.switchMap((params: Params) => this.eventService.getEventDetails(params['slug']))
-            .subscribe( res => { this.event = res[0] })
+            .subscribe( res => {
+              this.event = res[0];
+              (res[0].featured_media > 0)
+                ? (this.eventService.getEventFeatMedia(res[0].featured_media).subscribe(
+                  res => {
+                    this.event['feat_media'] = res;
+                    this.event['feat_url'] = 'url(\'' + this.event['feat_media'].media_details.sizes.full.source_url + '\')';
+                  }
+                ))
+                : (
+                  this.event['feat_media'] = false,
+                  this.event['feat_url']='url(\'/assets/img/alsace_nyc_default.jpg\')'
+                );
+            })
   }
 
   ngOnInit() {

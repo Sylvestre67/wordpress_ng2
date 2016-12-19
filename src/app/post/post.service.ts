@@ -11,14 +11,16 @@ import { Post } from './post';
 
 @Injectable()
 export class PostService {
-  getPosts(): Observable<Post[]>{
-    return this.http.get(this.wp_api + 'posts')
+  getPosts(page:number): Observable<Post[]>{
+    return this.http.get(this.wp_api + 'posts/'
+      + '?filter[posts_per_page]=5' + '&filter[paged]=' + page)
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }
 
   getPostDetails(slug:string): Observable<Post>{
-    return this.http.get(this.wp_api + 'posts?filter[name]=' + slug)
+    return this.http.get(this.wp_api
+      + 'posts?filter[name]=' + slug)
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }

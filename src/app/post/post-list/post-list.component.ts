@@ -15,15 +15,27 @@ export class PostListComponent implements OnInit {
   constructor( private postService : PostService) { }
 
   posts : Post[];
+  current_page: number;
 
-  getPosts(){
+  getPosts(page:number){
     return this.postService
-               .getPosts()
+               .getPosts(page)
                .subscribe( res => { this.posts = res; })
   }
 
+  getNextPageOfPost(){
+    this.current_page += 1;
+    return this.getPosts(this.current_page);
+  }
+
+  getPreviousPageOfPost(){
+    this.current_page += -1;
+    return this.getPosts(this.current_page);
+  }
+
   ngOnInit() {
-    this.getPosts()
+    this.current_page = 1;
+    this.getPosts(this.current_page);
   }
 
 }

@@ -1,15 +1,15 @@
 <ul *ngIf="events" class="list-unstyled event-list">
   <li *ngFor="let event of events | eventToCome" class="event-preview">
     <div class="date-cube">
-      <div class="text">{{ event.date | date:'d' }}</div>
-      <div class="text">{{ event.date | date:'MMM yy' }}</div>
+      <div class="text">{{ event.starting_date | moment | date:'d' }}</div>
+      <div class="text">{{ event.starting_date | moment | date:'MMM yy' }}</div>
     </div>
     <a class="h4" [innerHtml]="event.title.rendered" [routerLink]="['/event', event.slug]"></a>
-    <p>Where: La Tarte Flambee
-      <br>
-      123 east 12th Avenu, New York City, NY 10004
+    <p><strong>{{ event.venue }}</strong>
+        <br>
+      {{ event.address }}
     </p>
-    <p>{{ event.excerpt }} Join us for .... <a [routerLink]="['/event', event.slug]">[more info]</a></p>
+    <p>{{ event.excerpt }} <a [routerLink]="['/event', event.slug]">[more info]</a></p>
     <hr>
   </li>
 </ul>

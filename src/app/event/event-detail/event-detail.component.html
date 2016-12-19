@@ -1,8 +1,31 @@
-<div *ngIf="event">
-  <h4 [innerHtml]="event.title.rendered" [routerLink]="['/events', event.slug]"></h4>
-  <p [innerHtml]="event.content.rendered"></p>
+<div *ngIf="event" class="hero-container">
+  <div class="hero-image" [ngStyle]="{'background-image' : event.feat_url }">
+
+  </div>
+  <div class="container hero-body">
+    <div class="row home">
+      <div class="col-md-8 col-xs-12 l-col">
+        <h1 [innerHtml]="event.title.rendered"></h1>
+        <p>
+          Where: <strong>{{ event.venue }}</strong>
+          <br>
+          {{ event.address }}
+        </p>
+        <p [innerHtml]="event.content.rendered"></p>
+
+        <div class="google-map">
+          <app-google-map [address]="event.address"></app-google-map>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 col-xs-12 r-col">
+        <p>TBD</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="!event">
+<div *ngIf="!event" class="">
   <p>Loading Event Information</p>
 </div>

@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Event } from './event';
+import { Media } from '../media/media';
 
 @Injectable()
 export class EventService {
@@ -17,6 +18,12 @@ export class EventService {
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   } // get list of events
+
+  getEventFeatMedia(media_id:number): Observable<Media> {
+    return this.http.get(this.wp_api + 'media/' + media_id)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
+  }
 
   getEventDetails(slug:string): Observable<Event> {
     return this.http.get(this.wp_api + 'events?filter[name]=' + slug)
