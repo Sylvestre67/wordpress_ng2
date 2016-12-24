@@ -4,3 +4,12 @@
 	     -o-transition: @property,@duration,@effect;
 		    transition: @property,@duration,@effect;
 }
+
+.gradient(@direction,@start-color,@end-color){
+  background: @end-color; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(@direction,@start-color,@end-color); /*Safari 5.1-6*/
+  background: -o-linear-gradient(@direction,@start-color,@end-color); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(@direction,@start-color,@end-color); /*Fx 3.6-15*/
+  background: linear-gradient(@direction,@start-color,@end-color); /*Standard*/
+}
+

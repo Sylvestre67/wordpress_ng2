@@ -1,0 +1,9 @@
+<div class="sponsor-thumb" *ngIf="sponsor">
+  <a [href]="sponsor.website" target="_blank">
+    <img
+      [src]="sponsor._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url"
+    />
+    <p class="small" [innerHtml]="sponsor.title.rendered"></p>
+  </a>
+</div>
+

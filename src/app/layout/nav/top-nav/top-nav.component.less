@@ -3,6 +3,15 @@
 .navbar{
   background-color:@gray_alsace;
   border-radius:0;
+  & button.navbar-toggler{
+    border-radius: 0;
+    border-color: transparent;
+  }
+  & img.navbar-brand-sm{
+    max-width:150px;
+    float: right;
+    margin-top: .3em;
+  }
   & div.navbar-top{
     & .navbar-brand{
       max-width:150px;
@@ -34,7 +43,5 @@
 }
 
 @media (max-width: 767px) {
-  .navbar{
-    display:none;
-  }
+
 }

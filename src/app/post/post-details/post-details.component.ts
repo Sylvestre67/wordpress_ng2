@@ -9,23 +9,35 @@ import 'rxjs/add/operator/map';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
+import { User } from '../../shared/user/user';
+import { UserService } from '../../shared/user/user.service';
+
 @Component({
   selector: 'app-post-details',
   templateUrl: './post-details.component.html',
   styleUrls: ['./post-details.component.less'],
-  providers: [ PostService ],
+  providers: [ PostService, UserService ],
 })
 export class PostDetailsComponent implements OnInit {
 
   constructor( private postService : PostService,
+               private userService : UserService,
                private route : ActivatedRoute,
                private location : Location ) { }
 
-  private post : Post
+  private post : Post;
+  private user : User;
 
   getPostDetails(){
     this.route.params.switchMap((params: Params) => this.postService.getPostDetails(params['slug']))
-            .subscribe( res => { this.post = res[0] })
+            .subscribe(
+              res => {
+                this.post = res[0];
+                this.userService.getAuthorDetails(res[0].author).subscribe(
+                  res => { this.user = res }
+                )
+              }
+            )
   }
 
   ngOnInit() {

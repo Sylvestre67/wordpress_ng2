@@ -1,8 +1,29 @@
-<div *ngIf="post">
-  <h1>{{ post.title.rendered }}</h1>
-  <div [innerHTML]="post.content.rendered"></div>
+<div *ngIf="post && user" class="hero-container">
+  <div class="hero-image"
+       [ngClass]="(post.feat_url) ? '' : 'no-image'"
+       [ngStyle]="{'background-image' : post.feat_url }">
+  </div>
+  <div class="container hero-body">
+    <div class="row home">
+      <div class="col-md-8 col-xs-12 l-col">
+        <h1 [innerHtml]="post.title.rendered"></h1>
+        <p class="small">
+          {{ post.date | date}} by
+          <span style="text-transform: capitalize;">
+            {{ user.name }}
+          </span>
+        </p>
+
+        <p [innerHtml]="post.content.rendered"></p>
+      </div>
+
+      <div class="col-md-4 col-xs-12 r-col">
+        <p>TBD</p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="!post">
-  <p>Loading Post Information</p>
+<div *ngIf="!post || !user" class="">
+  <p>Loading Please Wait</p>
 </div>

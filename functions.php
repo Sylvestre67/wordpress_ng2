@@ -27,6 +27,14 @@
           'schema'          => null,
         )
       );
+
+      register_rest_field('sponsor', 'website',
+        array(
+          'get_callback'    => 'get_meta_field',
+          'update_callback' => null,
+          'schema'          => null,
+        )
+      );
   }
 
   /**

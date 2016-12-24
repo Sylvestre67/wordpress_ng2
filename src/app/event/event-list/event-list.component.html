@@ -1,4 +1,4 @@
-<ul *ngIf="events" class="list-unstyled event-list">
+<ul class="list-unstyled event-list">
   <li *ngFor="let event of events | eventToCome" class="event-preview">
     <div class="date-cube">
       <div class="text">{{ event.starting_date | moment | date:'d' }}</div>
@@ -9,7 +9,9 @@
         <br>
       {{ event.address }}
     </p>
-    <p>{{ event.excerpt }} <a [routerLink]="['/event', event.slug]">[more info]</a></p>
+    <p>
+      <span [innerHtml]="event.excerpt.rendered"></span>
+      <a [routerLink]="['/event', event.slug]">[more info]</a></p>
     <hr>
   </li>
 </ul>

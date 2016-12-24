@@ -52,11 +52,21 @@ a{
   }
 }
 
+button:focus {outline:0;}
+
 /*******************
 * LAYOUTS
 *******************/
+.loading-splash{
+  text-align:center;
+  & img{
+    max-width:50%;
+    height:auto;
+  }
+}
+
 .hero-container{
-  .hero-image{
+  & .hero-image{
     position: absolute;
     top: 0;
     left: 0;
@@ -68,9 +78,22 @@ a{
     -o-background-size: cover;
     background-size: cover;
     background-position: center bottom;
+    &.no-image{
+      .gradient(@direction:180deg,@start-color:fade(@red_alsace,0%),@end-color:fade(@red_alsace,100%));
+    }
+
+    @media (max-width: 574px) {
+      display:none;
+    }
+
   }
   .hero-body{
     margin-top:8em;
+
+    @media (max-width: 574px) {
+      margin-top:0;
+    }
+
     & .l-col{
       padding:1em;
     }

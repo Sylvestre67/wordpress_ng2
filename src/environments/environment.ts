@@ -5,9 +5,7 @@
 
 export const environment = {
   production: false,
-
   api_host:   'http://localhost:15000/wp-json/wp/v2/',
   wp_host: 'http://localhost:15000/',
-
   google_api_key: 'AIzaSyBIW4WqTo3MAS_loMdhhwfCWGeVoc3IYO8',
 };

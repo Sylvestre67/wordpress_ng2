@@ -1,5 +1,7 @@
 <div *ngIf="event" class="hero-container">
-  <div class="hero-image" [ngStyle]="{'background-image' : event.feat_url }">
+  <div class="hero-image"
+       [ngClass]="(event.feat_url) ? '' : 'no-image'"
+       [ngStyle]="{'background-image' : event.feat_url }">
 
   </div>
   <div class="container hero-body">

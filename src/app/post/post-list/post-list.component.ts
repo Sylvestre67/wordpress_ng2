@@ -20,7 +20,9 @@ export class PostListComponent implements OnInit {
   getPosts(page:number){
     return this.postService
                .getPosts(page)
-               .subscribe( res => { this.posts = res; })
+               .subscribe( res => {
+                 this.posts = res;
+               })
   }
 
   getNextPageOfPost(){
