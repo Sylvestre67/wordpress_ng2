@@ -33,9 +33,14 @@ export class PostDetailsComponent implements OnInit {
             .subscribe(
               res => {
                 this.post = res[0];
+                // Set post url feat image.
+                (res[0]._links['wp:featuredmedia'])
+                  ? this.post['feat_url'] = res[0]._links['wp:featuredmedia'][0].href
+                  : '';
+                // Get Author details.
                 this.userService.getAuthorDetails(res[0].author).subscribe(
                   res => { this.user = res }
-                )
+                );
               }
             )
   }

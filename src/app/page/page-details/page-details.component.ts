@@ -15,20 +15,27 @@ import { Page } from '../page';
 export class PageDetailsComponent implements OnInit {
 
   page : Page;
+  childPages : Page[];
 
   getPageDetails(){
     this.route.params.switchMap((params: Params) => this.pageService.getPageDetails(params['slug']))
             .subscribe( res => {
               this.page = res[0];
 
-              this.pageService.getPageFeatMedia(res[0].featured_media).subscribe(
+              // Set post url feat image.
+              (this.page['featured_media'] !== 0)
+                ? this.pageService.getPageFeatMedia(this.page['featured_media']).subscribe(
+                  res => { this.page['feat_url'] = 'url(' + res['guid']['rendered'] + ')' }
+                )
+                : false;
+
+              // Set child pages for side menu navigation
+              this.pageService.getChildPages(res[0].id).subscribe(
                 res => {
-                  this.page['feat_media'] = res;
-                  this.page['feat_url'] = 'url(\'' + this.page['feat_media'].media_details.sizes.full.source_url + '\')';
-                  console.info(this.page);
+                  this.childPages = res;
                 }
-              )
-            })
+              );
+            });
   }
 
   constructor(
@@ -40,5 +47,4 @@ export class PageDetailsComponent implements OnInit {
     ngOnInit() {
       this.getPageDetails();
     }
-
 }

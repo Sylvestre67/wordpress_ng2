@@ -11,13 +11,19 @@ import { PageService } from '../page.service';
 })
 export class PageAboutComponent implements OnInit {
   page : Page;
+  childPages : Page[] = [];
 
   constructor( private pageService : PageService ) { }
 
   ngOnInit() {
-    this.pageService.getPageDetails('about')
-      .subscribe(res => { this.page = res[0]; })
-
+    this.pageService.getPageDetails('about-us')
+      .subscribe(res => {
+        this.page = res[0]
+        this.pageService.getChildPages(res[0].id).subscribe(
+          res => {
+            this.childPages = res;
+          }
+        )
+      })
   }
-
 }

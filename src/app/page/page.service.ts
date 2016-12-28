@@ -20,7 +20,7 @@ export class PageService {
   }
 
   getPageDetails(slug:string): Observable<Page>{
-    return this.http.get(this.wp_api + 'pages?filter[name]=' + slug)
+    return this.http.get(this.wp_api + 'pages?filter[name]=' + slug + '&_embed')
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }
@@ -35,6 +35,12 @@ export class PageService {
     return this.http.get(this.wp_api + 'pages?parent=0')
                     .map((res:Response) => res.json())
                     .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
+  }
+
+  getChildPages(id:number): Observable<Page[]>{
+    return this.http.get(this.wp_api + 'pages?_embed&filter[parent]=' + id)
+      .map((res:Response) => res.json())
+      .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }
 
   constructor(private http : Http){ }

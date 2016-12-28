@@ -1,15 +1,29 @@
 <div *ngIf="page" class="hero-container">
-  <div class="hero-image" [ngStyle]="{'background-image' : page.feat_url }">
-
+  <div class="hero-image"
+       [ngClass]="(page.feat_url) ? '' : 'no-image'"
+       [ngStyle]="{'background-image' :  page.feat_url }">
   </div>
+
   <div class="container hero-body">
     <div class="row home">
       <div class="col-md-8 col-xs-12 l-col">
-        <h2>{{ page.title.rendered }}</h2>
+        <h2 [innerHtml]=" page.title.rendered"></h2>
         <p [innerHtml]="page.content.rendered"></p>
       </div>
 
       <div class="col-md-4 col-xs-12 r-col">
+        <ul *ngIf="childPages" class="list-unstyled child-page-nav">
+          <li *ngFor="let page of childPages"
+              [routerLink]="['/p', page.slug]"
+              routerLinkActive="active">
+            <a [innerHtml]="page.title.rendered">
+            </a>
+          </li>
+        </ul>
+
+        <div class="img-wrap text-xs-center">
+          <img src="/assets/img/alsace_steuben_parade_new_york.jpeg" class="img-fluid" />
+        </div>
 
       </div>
     </div>

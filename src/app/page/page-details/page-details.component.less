@@ -1,0 +1,18 @@
+@import "../../../assets/variables";
+
+ul.child-page-nav{
+  & li{
+    width:100%;
+    padding:.5em;
+    cursor:pointer;
+    &.active{
+      background-color:@red_alsace;
+      & a{
+        color:white;
+      }
+    }
+    & a{
+      text-transform: capitalize;
+    }
+  }
+}
