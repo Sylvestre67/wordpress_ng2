@@ -14,7 +14,9 @@
       <li *ngFor="let page of parentPages" class="nav-item"
           data-toggle="collapse"
           data-target="[aria-expanded='true']#navbarResponsive">
-        <a class="nav-link" [routerLink]="['p', page.slug]" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['p', page.slug]"
+           routerLinkActive="active"
+           [ngClass]="(parentSlug == page.slug) ? 'child-active' : ''">
           {{ page.title.rendered }}
         </a>
       </li>

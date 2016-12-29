@@ -1,6 +1,6 @@
 <div *ngIf="page" class="hero-container">
   <div class="hero-image"
-       [ngClass]="(page.feat_url) ? '' : 'no-image'"
+       [ngClass]="(page['featured_media'] !== 0) ? '' : 'no-image'"
        [ngStyle]="{'background-image' :  page.feat_url }">
   </div>
 

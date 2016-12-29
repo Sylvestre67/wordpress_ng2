@@ -38,7 +38,7 @@ export class PageService {
   }
 
   getChildPages(id:number): Observable<Page[]>{
-    return this.http.get(this.wp_api + 'pages?_embed&filter[parent]=' + id)
+    return this.http.get(this.wp_api + 'pages?_embed&filter[parent]=' + id + '&filter[orderby]=menu_order&order=asc')
       .map((res:Response) => res.json())
       .catch((error:any) => Observable.throw(error.json().error || 'Server Error'))
   }

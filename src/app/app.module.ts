@@ -56,6 +56,7 @@ import { PageAboutComponent } from './page/page-about/page-about.component';
 
     FormsModule,
     HttpModule,
+
     appRouter,
   ],
   exports:[ ],

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Page } from '../../../page/page';
 import { PageService } from '../../../page/page.service';
+import { ParentSlugService } from "../../../shared/parent-slug.service";
 
 @Component({
   selector: 'app-top-nav',
@@ -11,8 +12,10 @@ import { PageService } from '../../../page/page.service';
 })
 export class TopNavComponent implements OnInit {
   private parentPages : Page[];
+  private parentSlug : string;
 
-  constructor( private pageService : PageService) { }
+  constructor( private pageService : PageService,
+               public parentSlugService : ParentSlugService) {}
 
   getParentPages(){
     this.pageService.getParentPages().subscribe(pages => {
@@ -22,6 +25,10 @@ export class TopNavComponent implements OnInit {
 
   ngOnInit() {
     this.getParentPages();
+    this.parentSlugService.dataString$.subscribe(
+      slug => {
+        this.parentSlug = slug;
+      });
   }
 
 }

@@ -1,5 +1,6 @@
 import * as moment from 'moment';
-//import * as jquery from 'jquery';
+declare var $:any;
 
 window['moment'] = moment;
-//window['jQuery'] = window['$'] = jquery;
+
+

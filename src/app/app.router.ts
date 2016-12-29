@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router, NavigationStart } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 
@@ -16,6 +16,7 @@ import { PageAboutComponent } from './page/page-about/page-about.component';
 
 
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import { ParentSlugService } from "./shared/parent-slug.service";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -64,7 +65,13 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: []
+  providers: [ ParentSlugService ]
 })
 
-export class appRouter { }
+export class appRouter {
+
+  constructor(private router: Router, private slugService: ParentSlugService) {
+    router.events.subscribe((val) => {});
+  }
+
+}

@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
 import { PageService } from '../page.service';
 import { Page } from '../page';
+import { ParentSlugService } from "../../shared/parent-slug.service";
+
+declare var $:any;
 
 @Component({
   selector: 'app-page-details',
@@ -12,15 +15,27 @@ import { Page } from '../page';
   providers: [ PageService ]
 })
 
-export class PageDetailsComponent implements OnInit {
+export class PageDetailsComponent implements OnInit,OnDestroy {
 
   page : Page;
   childPages : Page[];
+  parentSlug : String;
+
+  constructor(
+    private pageService : PageService,
+    private route : ActivatedRoute,
+    private location : Location,
+    public parentPageSlugService : ParentSlugService,
+  ) { }
 
   getPageDetails(){
     this.route.params.switchMap((params: Params) => this.pageService.getPageDetails(params['slug']))
             .subscribe( res => {
               this.page = res[0];
+
+              (res[0]['_embedded']['up'])
+                ? this.parentPageSlugService.change(res[0]['_embedded']['up'][0]['slug'])
+                : false;
 
               // Set post url feat image.
               (this.page['featured_media'] !== 0)
@@ -35,16 +50,15 @@ export class PageDetailsComponent implements OnInit {
                   this.childPages = res;
                 }
               );
+
             });
   }
 
-  constructor(
-    private pageService : PageService,
-    private route : ActivatedRoute,
-    private location : Location,
-    ) { }
-
     ngOnInit() {
       this.getPageDetails();
+    }
+
+    ngOnDestroy(){
+      $('.child-active').removeClass('child-active');
     }
 }
