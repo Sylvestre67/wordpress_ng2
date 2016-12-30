@@ -17,6 +17,7 @@ import { PageAboutComponent } from './page/page-about/page-about.component';
 
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
 import { MembershipFormComponent } from './members/membership-form/membership-form.component';
+import { PageDonateComponent } from './page_donate/page-donate/page-donate.component';
 
 import { ParentSlugService } from "./shared/parent-slug.service";
 
@@ -65,6 +66,11 @@ const routes: Routes = [
   {
     path: 'become-member',
     component: MembershipFormComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'donate',
+    component: PageDonateComponent,
     pathMatch: 'full'
   },
 ];

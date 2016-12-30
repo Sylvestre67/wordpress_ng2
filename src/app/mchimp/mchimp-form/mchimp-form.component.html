@@ -1,21 +1,37 @@
 <h3>Stay in touch</h3>
 
-<p>Subscribe to our newsletter to stay in touch with us!</p>
-
-<form action="//nyc.us3.list-manage.com/subscribe/post?u=329119448809907e23753d6b7&amp;id=b85a7366f7" method="post"
-      id="mc-embedded-subscribe-form"
-      name="mc-embedded-subscribe-form"
-      class="form-inline mchimp-form" target="_blank" novalidate="">
+<section *ngIf="!submitted" [@fadeInOut]="submitted">
+  <p>Subscribe to our newsletter to stay in touch with us!</p>
+  <form (ngSubmit)="onSubmit(subscription)" [formGroup]="subscription" novalidate>
     <div class="form-group" style="width:100%;">
       <div class="input-group input_mobile_adjust" style="width:100%;">
-         <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="email address" required="">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="email.@email.com"
+          formControlName="email_address">
       </div>
-    </div>
-
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_329119448809907e23753d6b7_b85a7366f7" tabindex="-1" value="">
+      <p class="error" style="font-size:.8em;color:red;"
+         *ngIf="subscription.get('email_address').hasError('required')
+                    && subscription.get('email_address').touched">
+        Please enter your email.
+      </p>
     </div>
 
     <div class="submit">
-      <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn">
+      <button type="submit"
+              name="subscribe"
+              class="btn btn-primary btn-alsace">Subscribe</button>
     </div>
-</form>
+  </form>
+
+  <section *ngIf="error" [@fadeInOut]="error">
+    <p class="error" style="margin-top:.3em;font-size:.8em;color:red;">{{ errorMessage }}</p>
+  </section>
+
+</section>
+
+<section *ngIf="submitted" style="padding:.5em;background-color:white;" [@fadeInOut]="submitted">
+  <p style="margin-bottom: 0;">Thank you !</p>
+</section>
+

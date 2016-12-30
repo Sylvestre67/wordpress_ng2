@@ -54,14 +54,18 @@ a{
 
 button:focus, a:focus, input:focus { outline:0; }
 
-.btn-donate{
-  width:100%;
+.btn-alsace{
   background-color:@red_alsace;
+  border-color:@red_alsace;
   .transition(@property:all,@duration:250ms,@effect:ease);
-  border-color:transparent !important;
   &:hover,&:focus{
     background-color:fade(@red_alsace,90);
   }
+}
+
+.btn-donate{
+  width:100%;
+  .btn-alsace;
 }
 
 /*******************
@@ -88,8 +92,9 @@ button:focus, a:focus, input:focus { outline:0; }
     -o-background-size: cover;
     background-size: cover;
     background-position: center bottom;
+    background-image: url('/assets/img/alsace_nyc_default_bg.png');
     &.no-image{
-      .gradient(@direction:180deg,@start-color:fade(@red_alsace,0%),@end-color:fade(@red_alsace,100%));
+      //.gradient(@direction:180deg,@start-color:fade(@red_alsace,0%),@end-color:fade(@red_alsace,100%));
     }
 
     @media (max-width: 574px) {
@@ -98,7 +103,7 @@ button:focus, a:focus, input:focus { outline:0; }
 
   }
   .hero-body{
-    margin-top:8em;
+    margin-top:5em;
     min-height:500px;
     @media (max-width: 574px) {
       margin-top:0;

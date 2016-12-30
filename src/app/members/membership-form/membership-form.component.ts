@@ -15,8 +15,11 @@ export class MembershipFormComponent implements OnInit {
   submitted : boolean = false;
 
   onSubmit({ value, valid }: { value: Member, valid: boolean }) {
+
     (valid)
-      ? this.memberService.submitMembershipForm(value).subscribe(res => { this.submitted = true; })
+      ? this.memberService.submitMembershipForm(value).subscribe(res => {
+        this.submitted = true;
+      })
       : false;
   }
 
