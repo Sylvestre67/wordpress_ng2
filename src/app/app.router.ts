@@ -16,6 +16,8 @@ import { PageAboutComponent } from './page/page-about/page-about.component';
 
 
 import { ContactFormComponent } from './contact/contact-form/contact-form.component';
+import { MembershipFormComponent } from './members/membership-form/membership-form.component';
+
 import { ParentSlugService } from "./shared/parent-slug.service";
 
 const routes: Routes = [
@@ -58,6 +60,11 @@ const routes: Routes = [
   {
     path: 'contact-us',
     component: ContactFormComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'become-member',
+    component: MembershipFormComponent,
     pathMatch: 'full'
   },
 ];

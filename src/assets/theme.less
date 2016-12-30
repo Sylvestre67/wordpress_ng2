@@ -52,7 +52,17 @@ a{
   }
 }
 
-button:focus {outline:0;}
+button:focus, a:focus, input:focus { outline:0; }
+
+.btn-donate{
+  width:100%;
+  background-color:@red_alsace;
+  .transition(@property:all,@duration:250ms,@effect:ease);
+  border-color:transparent !important;
+  &:hover,&:focus{
+    background-color:fade(@red_alsace,90);
+  }
+}
 
 /*******************
 * LAYOUTS
@@ -89,7 +99,7 @@ button:focus {outline:0;}
   }
   .hero-body{
     margin-top:8em;
-
+    min-height:500px;
     @media (max-width: 574px) {
       margin-top:0;
     }

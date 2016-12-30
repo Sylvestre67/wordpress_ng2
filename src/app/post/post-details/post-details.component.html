@@ -6,14 +6,15 @@
   <div class="container hero-body">
     <div class="row home">
       <div class="col-md-8 col-xs-12 l-col">
-        <h1 [innerHtml]="post.title.rendered"></h1>
-        <p class="small">
-          {{ post.date | date}} by
-          <span style="text-transform: capitalize;">
+        <section [@fadeInOut]="post">
+          <h1 [innerHtml]="post.title.rendered" ></h1>
+          <p class="small">
+            {{ post.date | date}} by
+            <span style="text-transform: capitalize;">
             {{ user.name }}
           </span>
-        </p>
-
+          </p>
+        </section>
         <p [innerHtml]="post.content.rendered"></p>
       </div>
 
@@ -25,5 +26,5 @@
 </div>
 
 <div *ngIf="!post || !user" class="">
-  <p>Loading Please Wait</p>
+
 </div>

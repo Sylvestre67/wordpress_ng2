@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+
+import { DatePickerModule } from 'ng2-datepicker';
 
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
@@ -30,6 +32,7 @@ import { XsNavComponent } from './layout/nav/xs-nav/xs-nav.component';
 import { MchimpFormComponent } from './mchimp/mchimp-form/mchimp-form.component';
 import { PostPageComponent } from './post/post-page/post-page.component';
 import { PageAboutComponent } from './page/page-about/page-about.component';
+import { MembershipFormComponent } from './members/membership-form/membership-form.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,7 @@ import { PageAboutComponent } from './page/page-about/page-about.component';
     MchimpFormComponent,
     PostPageComponent,
     PageAboutComponent,
+    MembershipFormComponent,
   ],
   imports: [
     AlertModule,
@@ -55,7 +59,10 @@ import { PageAboutComponent } from './page/page-about/page-about.component';
     SharedModule,
 
     FormsModule,
+    ReactiveFormsModule,
+
     HttpModule,
+    DatePickerModule,
 
     appRouter,
   ],

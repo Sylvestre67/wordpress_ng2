@@ -1,5 +1,6 @@
 <ul class="list-unstyled event-list">
-  <li *ngFor="let event of events | eventToCome" class="event-preview">
+  <li *ngFor="let event of events | eventToCome" class="event-preview"
+      [@fadeInOut]="event">
     <div class="date-cube">
       <div class="text">{{ event.starting_date | moment | date:'d' }}</div>
       <div class="text">{{ event.starting_date | moment | date:'MMM yy' }}</div>

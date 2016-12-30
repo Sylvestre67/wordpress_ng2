@@ -1,5 +1,5 @@
-<ul class="list-unstyled post-list">
-  <li *ngFor="let post of posts">
+<ul class="list-unstyled post-list" >
+  <li *ngFor="let post of posts" [@fadeInOut]="post">
      <a [routerLink]="['/blog-post', post.slug]" class="h5 p">{{ post.title.rendered }}</a>
      <p class="small post-meta">{{ post.date | date}} by
        <span style="text-transform: capitalize;">

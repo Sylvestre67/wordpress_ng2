@@ -18,7 +18,7 @@ export class ContactService {
   submitContactForm(form:Object): Observable<Response>{
     let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
     let options      = new RequestOptions({ headers: headers }); // Create a request option
-    let body           = form
+    let body         = form
 
     return this.http.post(this.wp_host + '/contact-form.php', body, options)
                     .map((res:Response) => res.json())
@@ -26,5 +26,5 @@ export class ContactService {
   }
 
   constructor(private http : Http) { }
-  private wp_host = environment.wp_host;  
+  private wp_host = environment.wp_host;
 }

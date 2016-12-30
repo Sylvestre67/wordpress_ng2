@@ -1,0 +1,340 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-8 col-xs-12 l-col">
+      <h3>Become a Member</h3>
+      <p>Please complete and submit this form to apply for membership to l'Union Alsacienne of New York.</p>
+      <section>
+        <div *ngIf="!submitted">
+          <p>
+
+          </p>
+          <hr>
+        </div>
+      </section>
+      <section>
+        <form novalidate (ngSubmit)="onSubmit(member)" [formGroup]="member" class="membership-form">
+          <section formGroupName="identity">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>
+                    <span>First name <sup class="required">*</sup></span>
+                  </label>
+                  <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First name"
+                      formControlName="first_name">
+
+                  <div class="error"
+                       *ngIf="member.get('identity').get('first_name').hasError('required')
+                       && member.get('identity').get('first_name').touched">
+                    First Name is required
+                  </div>
+
+                  <label>
+                    <span>Last name <sup class="required">*</sup></span>
+                  </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last name"
+                      formControlName="last_name">
+                  <div class="error"
+                       *ngIf="member.get('identity').get('last_name').hasError('required')
+                       && member.get('identity').get('last_name').touched">
+                    Last Name is required
+                  </div>
+
+                  <label>
+                    <span>Email <sup class="required">*</sup></span>
+                  </label>
+                  <input
+                      type="email"
+                      class="form-control"
+                      placeholder="email.@email.com"
+                      formControlName="email">
+
+                  <div class="error"
+                       *ngIf="member.get('identity').get('email').hasError('required')
+                       && member.get('identity').get('email').touched">
+                    Email is required
+                  </div>
+
+                  <label>
+                    <span>Phone</span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="xxx-xx-xxxx"
+                    formControlName="mobile_phone">
+
+                    <div class="row">
+                      <div class="col-xs-12 col-md-6">
+                        <label>
+                          <span>Date of Birth <sup class="required">*</sup></span>
+                        </label>
+                        <div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="MM/DD/YYYY"
+                            formControlName="dob">
+
+                          <div class="error"
+                               *ngIf="member.get('identity').get('dob').hasError('required')
+                                && member.get('identity').get('dob').touched">
+                            Date of Birth is required
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-xs-12 col-md-6">
+                        <label>
+                          <span>Place of Birth <sup class="required">*</sup></span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="City, Country"
+                          formControlName="pob">
+                        <div class="error"
+                             *ngIf="member.get('identity').get('dob').hasError('required')
+                              && member.get('identity').get('dob').touched">
+                          Place of Birth is required
+                        </div>
+                      </div>
+                    </div>
+
+                  <label>
+                    <span>If not born in Alsace, please explain your relation to Alsace:</span>
+                  </label>
+                  <textarea
+                    class="form-control"
+                    placeholder="Reason..."
+                    formControlName="if_not_alsace_reason"></textarea>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section formGroupName="address">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>
+                    <span>Address <sup class="required">*</sup></span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Address"
+                    formControlName="address">
+                  <div class="error"
+                       *ngIf="member.get('address').get('address').hasError('required')
+                              && member.get('address').get('address').touched">
+                    Address is required
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-4">
+                      <label>
+                        <span>City <sup class="required">*</sup></span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="City"
+                        formControlName="city">
+                      <div class="error"
+                           *ngIf="member.get('address').get('city').hasError('required')
+                              && member.get('address').get('city').touched">
+                        City is required
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <label>
+                        <span>State <sup class="required">*</sup></span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="State"
+                        formControlName="state">
+
+                      <div class="error"
+                           *ngIf="member.get('address').get('state').hasError('required')
+                              && member.get('address').get('state').touched">
+                        State is required
+                      </div>
+
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                      <label>
+                        <span>ZipCode <sup class="required">*</sup></span>
+                      </label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="XXXXX"
+                        formControlName="zip">
+                      <div class="error"
+                           *ngIf="member.get('address').get('zip').hasError('required')
+                              && member.get('address').get('zip').touched">
+                        Zip Code is required
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section formGroupName="other">
+            <div class="row">
+              <div class="col-xs-12">
+                <section>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <div class="form-group">
+                        <label>
+                          <span>Occupation</span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Your job"
+                          formControlName="occupation">
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="form-group">
+                        <label>
+                          <span>Company</span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Company, Organisation"
+                          formControlName="company" >
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!--<div class="row hidden-xs-up">
+                  <div class="col-xs-12 col-md-4">
+                    <label>
+                      <span>Place</span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Place"
+                      formControlName="venue">
+                  </div>
+                  <div class="col-xs-12 col-md-4 ">
+                    <label>
+                      <span>Date</span>
+                    </label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      placeholder="MM/DD/YYYY"
+                      formControlName="date_membership_application" >
+                  </div>
+                </div>-->
+
+                <div class="form-group">
+                  <label>
+                    <span>Signature <sup class="required">*</sup></span>
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter full name..."
+                    formControlName="signature">
+
+                  <div class="error"
+                       *ngIf="member.get('other').get('signature').hasError('required')
+                                && member.get('other').get('signature').touched">
+                    Your signature is required
+                  </div>
+                  <hr>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <div class="form-group">
+                        <label>
+                          <span>First Sponsor</span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Sponsor's name"
+                          formControlName="first_sponsor">
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <div class="form-group">
+                        <label>
+                          <span>Second Sponsor</span>
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Sponsor's name"
+                          formControlName="second_sponsor">
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="submit">
+            <button type="submit" [disabled]="member.invalid" class="btn btn-default">Sign up</button>
+          </div>
+
+
+        </form>
+      </section>
+    </div>
+
+    <div class="col-md-4 r-col hidden-sm-down">
+      <div class="message">
+        <h3>Who? How?</h3>
+        <hr>
+        <p>To become a member of l'Union Alsacienne of New-York you must be:</p>
+          <ul>
+            <li>born in Alsace</li>
+            <li>of Alsatian descent</li>
+            <li>married to an Alsatian</li>
+          </ul>
+        <p>And pay a dues of $40/year.</p>
+        <p>
+          By becoming a member, you're invited to our events with a special price and subscribe to our quarterly bulletin.
+        </p>
+        <h5>Donate</h5>
+        <p>
+          Not quite sure to make the commitment ?
+          You can still help us, by making a donation and becoming a friends of l'Union Alsacienne.
+        </p>
+        <a href="" class="btn btn-primary btn-donate">Donate</a>
+      </div>
+
+      <div class="img-wrap text-xs-center">
+        <img src="/assets/img/alsace_steuben_parade_new_york.jpeg" class="img-fluid" />
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

@@ -1,4 +1,4 @@
-<div *ngIf="page" class="hero-container">
+<div *ngIf="page" class="hero-container" [@fadeInOut]="page">
   <div class="hero-image"
        [ngClass]="(page['featured_media'] !== 0) ? '' : 'no-image'"
        [ngStyle]="{'background-image' :  page.feat_url }">
@@ -7,8 +7,10 @@
   <div class="container hero-body">
     <div class="row home">
       <div class="col-md-8 col-xs-12 l-col">
-        <h2 [innerHtml]=" page.title.rendered"></h2>
-        <p [innerHtml]="page.content.rendered"></p>
+        <section [@fadeInOut]="page">
+          <h2 [innerHtml]=" page.title.rendered"></h2>
+          <p [innerHtml]="page.content.rendered"></p>
+        </section>
       </div>
 
       <div class="col-md-4 col-xs-12 r-col">
@@ -31,5 +33,5 @@
 </div>
 
 <div *ngIf="!page" class="">
-  <p>Loading Page</p>
+
 </div>
