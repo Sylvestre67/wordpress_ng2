@@ -17,8 +17,16 @@ import { Component, OnInit,trigger, style, transition, animate } from '@angular/
   styleUrls: ['./home.component.less'],
 })
 export class HomeComponent implements OnInit {
-  private ready : Boolean;
-  constructor() { }
+  private ready : Boolean = false;
+  private loadedComponent = [];
+
+  constructor() {}
+
+  updateLoadingThread(component) {
+    (component)
+      ? this.loadedComponent.push(component)
+      : false;
+  }
 
   ngOnInit() {
     this.ready = true;

@@ -19,7 +19,14 @@ import { Component, OnInit,trigger, style, transition, animate } from '@angular/
 })
 export class PostPageComponent implements OnInit {
   private ready : Boolean;
+  private loadedComponent = [];
   constructor() { }
+
+  updateLoadingThread(component) {
+    (component)
+      ? this.loadedComponent.push(component)
+      : false;
+  }
 
   ngOnInit() {
     this.ready = true;

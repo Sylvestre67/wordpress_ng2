@@ -1,4 +1,4 @@
-import { Component, OnInit,trigger, style, transition, animate } from '@angular/core';
+import { Component, OnInit,trigger, style, transition, animate, Output, EventEmitter } from '@angular/core';
 
 import { Post } from '../post';
 import { PostService } from '../post.service';
@@ -27,11 +27,13 @@ export class PostListComponent implements OnInit {
 
   posts : Post[];
   current_page: number;
+  @Output() listLoaded = new EventEmitter();
 
   getPosts(page:number){
     return this.postService
                .getPosts(page)
                .subscribe( res => {
+                 this.listLoaded.emit('app-post-list');
                  this.posts = res;
                })
   }

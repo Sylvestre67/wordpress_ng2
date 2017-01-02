@@ -71,6 +71,17 @@ button:focus, a:focus, input:focus { outline:0; }
 /*******************
 * LAYOUTS
 *******************/
+.hidden{
+  opacity:0;
+  -webkit-transition: opacity,300ms,ease;
+    -moz-transition: opacity,300ms,ease;
+      -o-transition: opacity,300ms,ease;
+        transition: opacity,300ms,ease;
+  &.loaded{
+    opacity:1;
+  }
+}
+
 .loading-splash{
   text-align:center;
   & img{
@@ -80,6 +91,7 @@ button:focus, a:focus, input:focus { outline:0; }
 }
 
 .hero-container{
+  min-height: 250px;
   & .hero-image{
     position: absolute;
     top: 0;
@@ -92,15 +104,14 @@ button:focus, a:focus, input:focus { outline:0; }
     -o-background-size: cover;
     background-size: cover;
     background-position: center bottom;
-    background-image: url('/assets/img/alsace_nyc_default_bg.png');
+
     &.no-image{
-      //.gradient(@direction:180deg,@start-color:fade(@red_alsace,0%),@end-color:fade(@red_alsace,100%));
+      background-image: url('/assets/img/alsace_nyc_default_bg.png');
     }
 
     @media (max-width: 574px) {
       display:none;
     }
-
   }
   .hero-body{
     margin-top:5em;
@@ -159,3 +170,8 @@ form {
 		}
 	}
 }
+
+/*******************
+* SPINNERS
+*******************/
+

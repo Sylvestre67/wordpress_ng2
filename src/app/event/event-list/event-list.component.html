@@ -1,6 +1,5 @@
-<ul class="list-unstyled event-list">
-  <li *ngFor="let event of events | eventToCome" class="event-preview"
-      [@fadeInOut]="event">
+<ul class="list-unstyled event-list" *ngIf="events">
+  <li *ngFor="let event of events | eventToCome" class="event-preview" [@fadeInOut]="event">
     <div class="date-cube">
       <div class="text">{{ event.starting_date | moment | date:'d' }}</div>
       <div class="text">{{ event.starting_date | moment | date:'MMM yy' }}</div>
@@ -15,4 +14,7 @@
       <a [routerLink]="['/event', event.slug]">[more info]</a></p>
     <hr>
   </li>
+  <p *ngIf="(events | eventToCome).length == 0">
+    <em>No events currently planned, come back soon to get more news !</em>
+  </p>
 </ul>

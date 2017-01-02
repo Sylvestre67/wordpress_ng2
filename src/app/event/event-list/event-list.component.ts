@@ -1,4 +1,4 @@
-import { Component, OnInit,trigger, style, transition, animate } from '@angular/core';
+import { Component, OnInit, trigger, style, transition, animate, Output, EventEmitter } from '@angular/core';
 
 import { EventService } from '../event.service';
 import { Event } from '../event';
@@ -21,14 +21,18 @@ import { Event } from '../event';
   providers: [EventService],
 })
 export class EventListComponent implements OnInit {
-  events: Event[] = [];
+  events: Event[];
+  @Output() listLoaded = new EventEmitter();
 
   constructor(private eventService : EventService) { }
 
   getEvents(){
     this.eventService
       .getEvents().subscribe(
-        res => { this.events = res; }
+        res => {
+          this.listLoaded.emit('app-event-list');
+          this.events = res;
+        }
       )
   }
 

@@ -12,11 +12,12 @@ import { ParentSlugService } from './parent-slug.service';
 import { SponsorDetailComponent } from './sponsor/sponsor-detail/sponsor-detail.component';
 import { SponsorListComponent } from './sponsor/sponsor-list/sponsor-list.component';
 import { DonateFormComponent } from './donate/donate-form/donate-form.component';
+import { SpinnerComponent } from './spinner/spinner/spinner.component';
 
 @NgModule({
   declarations: [ GoogleMapComponent, SharedPipe, SafePipe,
-    SponsorDetailComponent, SponsorListComponent, DonateFormComponent ],
-  exports: [ GoogleMapComponent, SponsorListComponent ],
+    SponsorDetailComponent, SponsorListComponent, DonateFormComponent, SpinnerComponent ],
+  exports: [ GoogleMapComponent, SponsorListComponent, SpinnerComponent ],
   bootstrap: [ ],
   imports: [ BrowserModule ],
   providers: [ UserService, ParentSlugService ]

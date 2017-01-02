@@ -19,6 +19,13 @@ import { Component, OnInit,trigger, style, transition, animate } from '@angular/
 export class EventPageComponent implements OnInit {
   private ready : Boolean;
   constructor() { }
+  private loadedComponent = [];
+
+  updateLoadingThread(component) {
+    (component)
+      ? this.loadedComponent.push(component)
+      : false;
+  }
 
   ngOnInit() {
     this.ready = true;

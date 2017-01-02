@@ -12,8 +12,8 @@
           <h1>alsace.nyc, the Blog</h1>
 
         </div>
-
-        <app-post-list></app-post-list>
+        <app-spinner [value]="loadedComponent.indexOf('app-post-list') == -1"></app-spinner>
+        <app-post-list (listLoaded)="updateLoadingThread($event)"></app-post-list>
       </div>
 
       <div class="col-md-4 col-xs-12 r-col">

@@ -1,3 +1,5 @@
+<app-spinner [value]="!event"></app-spinner>
+
 <div *ngIf="event" class="hero-container" [@fadeInOut]="event">
   <div class="hero-image"
        [ngClass]="(event.feat_url) ? '' : 'no-image'"
@@ -25,8 +27,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div *ngIf="!event" class="">
-
 </div>

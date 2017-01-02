@@ -22,4 +22,3 @@ export class MomentPipe implements PipeTransform {
     return moment(date);
   }
 }
-
