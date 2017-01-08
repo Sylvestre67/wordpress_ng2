@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { GoogleMapComponent } from './google-map/google-map/google-map.component';
 
@@ -14,12 +15,14 @@ import { SponsorListComponent } from './sponsor/sponsor-list/sponsor-list.compon
 import { DonateFormComponent } from './donate/donate-form/donate-form.component';
 import { SpinnerComponent } from './spinner/spinner/spinner.component';
 
+import { MchimpFormComponent } from './mchimp/mchimp-form/mchimp-form.component';
+
 @NgModule({
   declarations: [ GoogleMapComponent, SharedPipe, SafePipe,
-    SponsorDetailComponent, SponsorListComponent, DonateFormComponent, SpinnerComponent ],
-  exports: [ GoogleMapComponent, SponsorListComponent, SpinnerComponent ],
+    SponsorDetailComponent, SponsorListComponent, DonateFormComponent, SpinnerComponent, MchimpFormComponent ],
+  exports: [ GoogleMapComponent, SponsorListComponent, SpinnerComponent, MchimpFormComponent ],
   bootstrap: [ ],
-  imports: [ BrowserModule ],
+  imports: [ BrowserModule, FormsModule, ReactiveFormsModule ],
   providers: [ UserService, ParentSlugService ]
 })
 

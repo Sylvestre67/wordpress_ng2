@@ -15,6 +15,7 @@
           data-toggle="collapse"
           data-target="[aria-expanded='true']#navbarResponsive">
         <a class="nav-link" [routerLink]="['p', page.slug]"
+           [queryParams]="{page: page.slug}"
            routerLinkActive="active"
            [ngClass]="(parentSlug == page.slug) ? 'child-active' : ''">
           {{ page.title.rendered }}

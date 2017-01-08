@@ -24,8 +24,8 @@ import { MchimpService } from "../mchimp.service";
       ])
     ])
   ],
-  templateUrl: './mchimp-form.component.html',
-  styleUrls: ['./mchimp-form.component.less'],
+  templateUrl: 'mchimp-form.component.html',
+  styleUrls: ['mchimp-form.component.less'],
   providers : [ MchimpService ],
 })
 export class MchimpFormComponent implements OnInit {

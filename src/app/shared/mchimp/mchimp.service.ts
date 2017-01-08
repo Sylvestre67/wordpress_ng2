@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { Http, Response, Headers, RequestOptions, Jsonp } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { environment } from '../../environments/environment';
 
 @Injectable()
 export class MchimpService {

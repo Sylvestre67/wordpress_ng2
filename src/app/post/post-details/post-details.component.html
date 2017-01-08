@@ -1,13 +1,15 @@
-<div class="hero-container">
+<app-spinner [value]="!post && !user"></app-spinner>
+
+<div class="hero-container" *ngIf="post && user" [@fadeInOut]="post">
   <div *ngIf="post" class="hero-image"
        [ngClass]="(post.feat_url) ? '' : 'no-image'"
        [ngStyle]="{'background-image' : post.feat_url }">
   </div>
-  <div class="container hero-body">
+  <div class="container hero-body" >
     <div class="row home">
       <div class="col-md-8 col-xs-12 l-col" style="min-height:500px;">
         <app-spinner [value]="!post && !user"></app-spinner>
-        <section *ngIf="post && user" [@fadeInOut]="post">
+        <section>
           <h1 [innerHtml]="post.title.rendered" ></h1>
           <p class="small">
             {{ post.date | date}} by
@@ -20,7 +22,10 @@
       </div>
 
       <div class="col-md-4 col-xs-12 r-col">
-        <p>TBD</p>
+        <app-mchimp-form></app-mchimp-form>
+        <div class="img-wrap text-xs-center">
+          <img src="/assets/img/alsace_steuben_parade_new_york.jpeg" class="img-fluid" />
+        </div>
       </div>
     </div>
   </div>

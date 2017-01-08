@@ -29,7 +29,6 @@ import { ContactFormComponent } from './contact/contact-form/contact-form.compon
 
 import { APP_BASE_HREF } from '@angular/common';
 import { XsNavComponent } from './layout/nav/xs-nav/xs-nav.component';
-import { MchimpFormComponent } from './mchimp/mchimp-form/mchimp-form.component';
 import { PostPageComponent } from './post/post-page/post-page.component';
 import { PageAboutComponent } from './page/page-about/page-about.component';
 import { MembershipFormComponent } from './members/membership-form/membership-form.component';
@@ -48,7 +47,6 @@ import { PageBodyComponent } from './page/page-body/page-body.component';
     TopNavComponent,
     ContactFormComponent,
     XsNavComponent,
-    MchimpFormComponent,
     PostPageComponent,
     PageAboutComponent,
     MembershipFormComponent,
@@ -71,9 +69,9 @@ import { PageBodyComponent } from './page/page-body/page-body.component';
     DatePickerModule,
     appRouter,
   ],
-  exports:[ ],
+  exports:[  ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
-  bootstrap: [AppComponent],
+  bootstrap: [ AppComponent ],
 })
 
 export class AppModule { }
