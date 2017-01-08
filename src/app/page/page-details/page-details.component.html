@@ -1,23 +1,33 @@
-<div *ngIf="page" class="hero-container" [@fadeInOut]="page">
-  <div class="hero-image"
-       [ngClass]="(page['featured_media'] !== 0) ? '' : 'no-image'"
-       [ngStyle]="{'background-image' :  page.feat_url }">
+<app-spinner [value]="!childPages"></app-spinner>
+
+
+<div *ngIf="childPages" [@fadeInOut]="childPages" class="hero-container">
+  <div class="hero-image no-image">
   </div>
 
   <div class="container hero-body">
     <div class="row home">
       <div class="col-md-8 col-xs-12 l-col">
-        <section [@fadeInOut]="page">
-          <h2 [innerHtml]=" page.title.rendered"></h2>
-          <p [innerHtml]="page.content.rendered"></p>
+
+        <section>
+          <app-spinner [value]="loading"></app-spinner>
+          <app-page-body></app-page-body>
         </section>
+
+        <div class="body-block" body-block>
+          <h2 [innerHtml] = "page.title.rendered"></h2>
+          <p  [innerHtml] = "page.content.rendered"></p>
+        </div>
+
       </div>
 
       <div class="col-md-4 col-xs-12 r-col">
         <ul *ngIf="childPages" class="list-unstyled child-page-nav">
           <li *ngFor="let page of childPages"
-              [routerLink]="['/p', page.slug]"
-              routerLinkActive="active">
+              [routerLink]="['/p', 'about-us']"
+              [queryParams]="{page: page.slug}"
+              routerLinkActive="active"
+              (click)="updateBodyContent(page)">
             <a [innerHtml]="page.title.rendered">
             </a>
           </li>

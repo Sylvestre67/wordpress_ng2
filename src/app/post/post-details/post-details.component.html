@@ -1,12 +1,13 @@
-<div *ngIf="post && user" class="hero-container">
-  <div class="hero-image"
+<div class="hero-container">
+  <div *ngIf="post" class="hero-image"
        [ngClass]="(post.feat_url) ? '' : 'no-image'"
        [ngStyle]="{'background-image' : post.feat_url }">
   </div>
   <div class="container hero-body">
     <div class="row home">
-      <div class="col-md-8 col-xs-12 l-col">
-        <section [@fadeInOut]="post">
+      <div class="col-md-8 col-xs-12 l-col" style="min-height:500px;">
+        <app-spinner [value]="!post && !user"></app-spinner>
+        <section *ngIf="post && user" [@fadeInOut]="post">
           <h1 [innerHtml]="post.title.rendered" ></h1>
           <p class="small">
             {{ post.date | date}} by
@@ -14,8 +15,8 @@
             {{ user.name }}
           </span>
           </p>
-        </section>
         <p [innerHtml]="post.content.rendered"></p>
+        </section>
       </div>
 
       <div class="col-md-4 col-xs-12 r-col">

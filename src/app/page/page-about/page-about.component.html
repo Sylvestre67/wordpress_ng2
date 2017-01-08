@@ -5,6 +5,7 @@
 
   <div class="container hero-body">
     <div class="row home">
+
       <div *ngIf="selectedPage" class="col-md-8 col-xs-12 l-col">
         <h3>{{ selectedPage.title.rendered }}</h3>
         <p [innerHtml]="selectedPage.content.rendered"></p>

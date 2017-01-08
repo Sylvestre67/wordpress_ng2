@@ -34,6 +34,7 @@ import { PostPageComponent } from './post/post-page/post-page.component';
 import { PageAboutComponent } from './page/page-about/page-about.component';
 import { MembershipFormComponent } from './members/membership-form/membership-form.component';
 import { PageDonateComponent } from './page_donate/page-donate/page-donate.component';
+import { PageBodyComponent } from './page/page-body/page-body.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PageDonateComponent } from './page_donate/page-donate/page-donate.compo
     PageAboutComponent,
     MembershipFormComponent,
     PageDonateComponent,
+    PageBodyComponent,
   ],
   imports: [
     AlertModule,

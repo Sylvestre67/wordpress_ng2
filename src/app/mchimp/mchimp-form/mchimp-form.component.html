@@ -18,10 +18,11 @@
       </p>
     </div>
 
-    <div class="submit">
+    <div class="submit" style="text-align:right;padding-bottom:1em;">
       <button type="submit"
               name="subscribe"
-              class="btn btn-primary btn-alsace">Subscribe</button>
+              class="btn btn-primary btn-alsace"
+              [disabled]="subscription.invalid">Subscribe</button>
     </div>
   </form>
 

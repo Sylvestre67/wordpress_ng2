@@ -1,19 +1,28 @@
-<div class="container">
-  <div class="row">
+<div class="hero-container">
+  <div class="hero-image no-image">
+  </div>
+  <div class="container hero-body" [@fadeInOut]="ready">
+    <div class="row">
 
     <div class="col-md-8 col-xs-12 l-col">
       <h3>Become a Member</h3>
       <p>Please complete and submit this form to apply for membership to l'Union Alsacienne of New York.</p>
       <section>
-        <div *ngIf="!submitted">
-          <p>
-
-          </p>
-          <hr>
-        </div>
+          <div *ngIf="submitted">
+            <p>Thank you, your application has been succesfully submitted.</p>
+            <p id="member">The Annual Membership fee is $40.  </p>
+            <h5>Please mail your check to:</h5>
+              <p>
+              Union Alsacienne of New York - Treasury <br>
+              Mr Clement Lichtenauer <br>
+              340 East 52nd Street - Apt. PHC <br>
+              NY 10022, New York <br>
+            </p>
+            <hr>
+          </div>
       </section>
       <section>
-        <form novalidate (ngSubmit)="onSubmit(member)" [formGroup]="member" class="membership-form">
+        <form novalidate (ngSubmit)="onSubmit(member)" [formGroup]="member" *ngIf="!submitted" class="membership-form">
           <section formGroupName="identity">
             <div class="row">
               <div class="col-xs-12">
@@ -302,7 +311,6 @@
             <button type="submit" [disabled]="member.invalid" class="btn btn-default">Sign up</button>
           </div>
 
-
         </form>
       </section>
     </div>
@@ -321,12 +329,12 @@
         <p>
           By becoming a member, you're invited to our events with a special price and subscribe to our quarterly bulletin.
         </p>
-        <h5>Donate</h5>
+        <!--<h5>Donate</h5>
         <p>
           Not quite sure to make the commitment ?
           You can still help us, by making a donation and becoming a friends of l'Union Alsacienne.
         </p>
-        <a routerLink="/donate" class="btn btn-primary btn-donate">Donate</a>
+        <a routerLink="/donate" class="btn btn-primary btn-donate">Donate</a>-->
       </div>
 
       <div class="img-wrap text-xs-center">
@@ -336,5 +344,7 @@
     </div>
 
   </div>
+  </div>
 </div>
+
 
